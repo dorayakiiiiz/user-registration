@@ -26,6 +26,8 @@ app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
 }))
 
+app.options('*', cors());
+
 const PORT = process.env.PORT;
 const MONGO_URI = process.env.MONGO_URI;
 const dbConnnect = async() => {
