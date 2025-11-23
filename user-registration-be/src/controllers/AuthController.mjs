@@ -8,11 +8,10 @@ class AuthController {
     // [POST] /user/register
     async register(req, res, next) {
         try {
-
             const { email, password } = req.body;
 
             const error = validateRegisterInput(email, password);
-            if (error) 
+            if (error)
                 return res.status(400).json({ message: error });
 
             const user = await User.findOne({ email });
@@ -37,6 +36,14 @@ class AuthController {
     async login(req, res, next) {
         try {
             const { email, password } = req.body;
+
+            if (!email || email.trim() === "") {
+                return res.status(400).json({ message: 'Please input email.' });
+            }
+
+            if (!password || password.trim() === "") {
+                return res.status(400).json({ message: 'Please input password.' });
+            }
 
             const user = await User.findOne({ email });
             if (!user)

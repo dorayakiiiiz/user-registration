@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function HomePage() {
     return (
         <div className="w-full h-screen flex justify-center items-center bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700">
-            <div className="w-full max-w-[600px] h-full max-h-[400px] border border-[#a7b9f2] shadow-2xl bg-white/20 rounded-3xl backdrop-blur-md flex flex-col items-center justify-center gap-[40px]">
+            <div className="w-full md:max-w-[600px] h-screen md:max-h-[400px] border border-[#a7b9f2] shadow-2xl bg-white/20 md:rounded-3xl backdrop-blur-md flex flex-col items-center justify-center gap-[40px]">
                 <div className="font-momo text-3xl text-[#fff]">
                     User registration form
                 </div>

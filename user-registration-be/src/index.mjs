@@ -44,7 +44,6 @@ app.use(
     })
 );
 
-
 route(app);
 
 if (process.env.NODE_ENV !== 'production') {

@@ -32,14 +32,14 @@ export default function LoginPage() {
             return;
         }
 
-        const passwordError = Validator.validatePassword(password);
+        const passwordError = Validator.validatePasswordLogin(password);
         if (passwordError) {
             setLog({ type: 'error', content: passwordError });
             return;
         }
 
         try {
-            const res = await authService.login({
+            await authService.login({
                 email,
                 password
             });
@@ -68,7 +68,7 @@ export default function LoginPage() {
             <div className="flex justify-center items-center w-full h-screen bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700">
 
                 
-                <div className="w-full max-w-[700px] border border-[#a7b9f2] p-[20px] bg-white/20 rounded-3xl backdrop-blur-md shadow-2xl flex flex-col items-center">
+                <div className="w-full h-screen md:h-auto max-w-[700px] border border-[#a7b9f2] p-[20px] bg-white/20 md:rounded-3xl backdrop-blur-md shadow-2xl flex flex-col items-center justify-center md:justify-start">
                     
                     <Link
                         to="/"
