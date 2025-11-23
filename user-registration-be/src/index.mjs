@@ -51,8 +51,8 @@ app.use(
 
 route(app);
 
-app.listen(PORT, () => {
-    console.log(`App listening on port ${PORT}`)
-})
+// app.listen(PORT, () => {
+//     console.log(`App listening on port ${PORT}`)
+// })
 
 export default app;
