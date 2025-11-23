@@ -23,7 +23,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.options('*', cors(corsOptions));
 
 const PORT = process.env.PORT;
 const MONGO_URI = process.env.MONGO_URI;
@@ -43,6 +42,8 @@ app.use(
         extended: true,
     })
 );
+
+app.options('*', cors());
 
 route(app);
 
