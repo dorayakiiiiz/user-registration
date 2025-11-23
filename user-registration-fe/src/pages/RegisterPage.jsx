@@ -28,7 +28,7 @@ export default function RegisterPage() {
             setLog({ type: 'success', content: 'Register successfully! Redirecting to dashboard...'})
             setTimeout(() => {
                 navigate('/user/login');
-            }, 2000);
+            }, 1500);
         },
         onError: () => {
             setLog({ type: 'error', content: err?.response?.data?.message || 'Registration failed' });

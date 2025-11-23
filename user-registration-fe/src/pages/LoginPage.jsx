@@ -25,7 +25,7 @@ export default function LoginPage() {
             setLog({ type: 'success', content: 'Login successfully! Redirecting...'})
             setTimeout(() => {
                 navigate('/dashboard', { state: { email }, replace: true });
-            }, 2000);
+            }, 1500);
         },
         onError: () => {
             setLog({ type: 'error', content: err?.response?.data?.message || 'Login failed' });
