@@ -22,13 +22,6 @@ const dbConnnect = async() => {
 }
 dbConnnect();
 
-app.use(express.json());
-app.use(
-    express.urlencoded({
-        extended: true,
-    })
-);
-
 const allowedOrigins = [
     'http://localhost:5173', // frontend dev
     'https://23120197-user-registration-fe.vercel.app'
@@ -45,6 +38,16 @@ app.use(cors({
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
 }))
+
+app.options('*', cors());
+
+app.use(express.json());
+app.use(
+    express.urlencoded({
+        extended: true,
+    })
+);
+
 
 route(app);
 
