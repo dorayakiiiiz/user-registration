@@ -23,8 +23,9 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+app.options('*', cors(corsOptions));
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI;
 const dbConnnect = async() => {
     try {
@@ -43,7 +44,6 @@ app.use(
     })
 );
 
-app.options('*', cors());
 
 route(app);
 
