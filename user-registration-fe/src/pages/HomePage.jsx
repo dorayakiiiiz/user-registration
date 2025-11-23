@@ -11,14 +11,16 @@ export default function HomePage() {
                 <div className="flex items-center justify-center gap-[40px]">
                     <Link
                         to="/user/login"
-                        className="h-[60px] w-[140px] rounded-3xl bg-[#3b96f7] hover:bg-[#87c1ff] text-[#fff] font-semibold font-quicksand text-xl flex items-center justify-center"
+                        className="h-[60px] w-[160px] rounded-3xl bg-[#3b96f7] hover:bg-[#87c1ff] text-[#fff] font-semibold font-quicksand text-xl flex items-center justify-center"
                     >
+                        <i className="fa-solid fa-arrow-right-to-bracket mr-[10px]"></i>
                         Login
                     </Link>
                     <Link
                         to="/user/register"
-                        className="h-[60px] w-[140px] rounded-3xl bg-[#b51af2] hover:bg-[#d877ff] text-[#fff] font-semibold font-quicksand text-xl flex items-center justify-center"
+                        className="h-[60px] w-[160px] rounded-3xl bg-[#b51af2] hover:bg-[#d877ff] text-[#fff] font-semibold font-quicksand text-xl flex items-center justify-center"
                     >
+                        <i className="fa-solid fa-user-plus mr-[10px]"></i>
                         Register
                     </Link>
 
