@@ -30,7 +30,7 @@ export default function RegisterPage() {
                 navigate('/user/login');
             }, 1500);
         },
-        onError: () => {
+        onError: (err) => {
             setLog({ type: 'error', content: err?.response?.data?.message || 'Registration failed' });
         }
     })
@@ -102,7 +102,7 @@ export default function RegisterPage() {
                         onChange={e => setPassword(e.target.value)}
                     />
 
-                    <div className={`h-[20px] mb-[10px] ${log.type === 'error' ? 'text-[#f0ff21]' : log.type === 'success' ? 'text-[#43E660]' : ''} font-semibold`}>
+                    <div className={`h-[20px] mb-[10px] text-center ${log.type === 'error' ? 'text-[#f0ff21]' : log.type === 'success' ? 'text-[#43E660]' : ''} font-semibold`}>
                         {log.content}
                     </div>
 
