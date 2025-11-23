@@ -1,4 +1,3 @@
-import jwt from 'jsonwebtoken'
 import bcrypt from "bcrypt"
 import User from "../models/User.mjs";
 import { validateRegisterInput } from '../utils/validator.mjs';
@@ -47,18 +46,7 @@ class AuthController {
             if (!match) 
                 return res.status(400).json({ message: 'Incorrect password.' });
 
-            const token = jwt.sign(
-                { 
-                    id: user._id
-                },
-                process.env.JWT_SECRET,
-                { expiresIn: "7d" }
-            );
-
-            res.json({
-                message: 'Login successfully!',
-                token
-            });
+            res.json({ message: 'Login successfully!' });
 
         } catch (err) {
             res.status(500).json({ error: err.message });

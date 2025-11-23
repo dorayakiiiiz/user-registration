@@ -44,7 +44,6 @@ export default function LoginPage() {
                 password
             });
 
-            const { token } = res;
             setLog({
                 type: 'success',
                 content: 'Login successfully! Redirecting...'

@@ -30,7 +30,7 @@ app.use(
 );
 
 const allowedOrigins = [
-    'http://localhost:5173' // frontend dev
+    'https://23120197-user-registration-fe.vercel.app' 
 ]
 
 app.use(cors({
