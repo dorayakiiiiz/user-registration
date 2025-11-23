@@ -10,23 +10,20 @@ import route from './routes/index.mjs';
 const app = express();
 
 const allowedOrigins = [
-    'http://localhost:5173', // frontend dev
+    'http://localhost:5173',
     'https://23120197-user-registration-fe.vercel.app'
-]
+];
 
-app.use(cors({
-    origin: function (origin, callback) {
-        if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-            callback(null, true);
-        } else {
-            callback(new Error('Blocked by CORS'));
-        }
-    },
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS']
-}))
+const corsOptions = {
+    origin: allowedOrigins, 
+    credentials: true, 
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+};
 
-app.options('*', cors());
+app.use(cors(corsOptions));
+
+app.options('*', cors(corsOptions));
 
 const PORT = process.env.PORT;
 const MONGO_URI = process.env.MONGO_URI;
@@ -46,7 +43,6 @@ app.use(
         extended: true,
     })
 );
-
 
 route(app);
 
