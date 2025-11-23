@@ -9,19 +9,6 @@ import route from './routes/index.mjs';
 
 const app = express();
 
-
-const PORT = process.env.PORT;
-const MONGO_URI = process.env.MONGO_URI;
-const dbConnnect = async() => {
-    try {
-        await mongoose.connect(MONGO_URI);
-        console.log('Connect to database successfully');
-    } catch (err) {
-        console.log(`Error while connecting to database: ${err}`);
-    }
-}
-dbConnnect();
-
 const allowedOrigins = [
     'http://localhost:5173', // frontend dev
     'https://23120197-user-registration-fe.vercel.app'
@@ -39,7 +26,17 @@ app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
 }))
 
-app.options('*', cors());
+const PORT = process.env.PORT;
+const MONGO_URI = process.env.MONGO_URI;
+const dbConnnect = async() => {
+    try {
+        await mongoose.connect(MONGO_URI);
+        console.log('Connect to database successfully');
+    } catch (err) {
+        console.log(`Error while connecting to database: ${err}`);
+    }
+}
+dbConnnect();
 
 app.use(express.json());
 app.use(
@@ -51,8 +48,10 @@ app.use(
 
 route(app);
 
-// app.listen(PORT, () => {
-//     console.log(`App listening on port ${PORT}`)
-// })
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`App listening on port ${PORT}`);
+    });
+}
 
 export default app;
